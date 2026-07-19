@@ -4,6 +4,8 @@
 
 ReleaseFlow is a synthetic portfolio prototype for **Northstar Industrial Systems**, a fictional U.S. fluid-handling equipment manufacturer. It demonstrates the operational handoff between engineering evidence and ERP master data without customer data or proprietary integrations.
 
+![ReleaseFlow release queue showing five synthetic governed release cases](docs/screenshots/01_release_queue.png)
+
 ## Target user and buyer
 
 The primary users are engineering change coordinators, product master-data analysts, manufacturing systems analysts, and supply-chain systems analysts. The represented buyer is a director of engineering operations, manufacturing systems manager, or operations-excellence leader accountable for release speed, master-data quality, and operational disruption.
@@ -154,3 +156,7 @@ This prototype does not parse CAD, connect to real ERP/PLM systems, optimize inv
 ## Future extensions
 
 Production SSO, object storage and malware scanning, PostgreSQL, durable job execution, signed external adapter credentials, SAP/Oracle/Epicor/Odoo/NetSuite connectors, richer file parsers, and calibrated structured-model extraction are deliberate follow-on work—not hidden MVP dependencies.
+
+## License
+
+Released under the [MIT License](LICENSE).

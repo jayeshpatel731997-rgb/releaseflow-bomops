@@ -1,0 +1,3 @@
+import { expect, test } from '@playwright/test'
+for (const [name,id,text] of [['new part release','CASE-001','NIS-PA-900'],['supplier packaging','CASE-002','Cartridge Seal'],['circular BOM blocked','CASE-004','Validation blocked'],['ambiguous duplicate escalated','CASE-005','Automatic merge refused']] as const){test(name,async({page})=>{await page.goto(`/cases/${id}`);await expect(page.getByText(text,{exact:false}).first()).toBeVisible()})}
+test('posting without approval is represented as governed',async({page})=>{await page.goto('/guide');await expect(page.getByText('No silent merges. No unsafe substitutions.')).toBeVisible()})

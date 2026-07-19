@@ -1,0 +1,36 @@
+[project]
+name = "releaseflow-backend"
+version = "0.1.0"
+description = "Governed BOM and item-master release workflow"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.34,<1",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.7,<3",
+  "sqlalchemy>=2.0,<3",
+  "alembic>=1.14,<2",
+  "networkx>=3.4,<4",
+  "python-multipart>=0.0.20,<1",
+]
+
+[project.optional-dependencies]
+dev = ["httpx>=0.28", "pytest>=8.3", "pytest-cov>=6", "ruff>=0.9", "mypy>=1.14", "types-networkx>=3.4"]
+ai = ["openai>=1.60,<2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["UP046"]
+
+[tool.mypy]
+python_version = "3.12"
+plugins = ["pydantic.mypy"]
+strict = true

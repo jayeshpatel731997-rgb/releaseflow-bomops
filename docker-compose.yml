@@ -1,0 +1,12 @@
+services:
+  api:
+    build: ./backend
+    environment: {DATABASE_URL: "sqlite:////data/releaseflow.db", EXTRACTION_MODE: fixture}
+    volumes: ["releaseflow-data:/data"]
+    ports: ["8000:8000"]
+    healthcheck: {test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health')"], interval: 10s, timeout: 3s, retries: 5}
+  web:
+    build: ./frontend
+    ports: ["8080:80"]
+    depends_on: {api: {condition: service_healthy}}
+volumes: {releaseflow-data: {}}

@@ -1,0 +1,6 @@
+export type CaseSummary = { id:string; release_type:string; product:string; state:string; severity:string; owner_id:string|null; version:number; approval_status:string|null; scenario_key:string; created_at:string; finding_count:number }
+export type Finding = { id:number; rule_id:string; severity:string; explanation:string; affected_record:string; evidence:Record<string,string>; current_value:unknown; candidate_value:unknown; confidence:number; suggested_action:string; approval_required:boolean }
+export type Impact = { id:number; impact_type:string; record_id:string; summary:string; risk:string; graph_path:string[] }
+export type Approval = { id:string; case_id:string; required_role:string; status:string; case_version:number; created_at:string }
+export type CaseDetail = { case:CaseSummary; documents:Array<Record<string,unknown>>; extractions:Array<Record<string,unknown>>; findings:Finding[]; duplicates:Array<Record<string,unknown>>; impacts:Impact[]; change_sets:Array<Record<string,unknown>>; changes:Array<Record<string,unknown>>; approvals:Approval[]; postings:Array<Record<string,unknown>>; escalations:Array<Record<string,unknown>> }
+export type Page<T> = {items:T[]; page:number; page_size:number; total:number}
